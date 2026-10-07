@@ -3,13 +3,13 @@
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/suhnshaine/TFA3-pos-system.git
+git clone https://github.com/suhnshaine/TFA4-pos-system.git
 ```
 
 ### Navigate to the Project Folder
 
 ```bash
-cd TFA3-pos-system
+cd TFA4-pos-system
 ```
 
 ## Database Setup
@@ -17,13 +17,13 @@ cd TFA3-pos-system
 1. Create a database named:
 
 ```text
-pos_system
+pos_system_tfa4
 ```
 
 2. Import the database export file:
 
 ```text
-database/pos_system.sql
+database/pos_system_tfa4.sql
 ```
 
 3. Ensure Apache and MySQL are running in XAMPP.
@@ -42,9 +42,15 @@ Open:
 http://localhost:8080
 ```
 
+## Logging in
+```text
+username: admin
+password: admin123
+```
+
 ## Live Demo
 
-http://it0049-tfa3.infinityfree.me/
+http://it0049-tfa4.infinityfree.me/
 
 ## Author
 
