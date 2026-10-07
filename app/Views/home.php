@@ -17,11 +17,16 @@
             <a href="/about">About</a>
             <a href="/customers">Customers</a>
             <a href="/users">Users</a>
+            <?php if (session()->get('logged_in')): ?>
+                <a href="<?= site_url('logout') ?>" class="btn btn-edit">
+                    Logout
+                </a>
+            <?php endif; ?>
         </nav>
         <div class="page-header">
             <h1>Welcome</h1>
         </div>
-        <p>Welcome to the POS System Version 3.</p>
+        <p>Welcome to the POS System Version 4.</p>
 
     </div>
 </body>

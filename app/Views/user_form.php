@@ -17,6 +17,11 @@
             <a href="/about">About</a> 
             <a href="/customers">Customers</a> 
             <a href="/users">Users</a>
+            <?php if (session()->get('logged_in')): ?>
+                <a href="<?= site_url('logout') ?>" class="btn btn-edit">
+                    Logout
+                </a>
+            <?php endif; ?>
         </nav>
 
         <h1>User Form</h1>
