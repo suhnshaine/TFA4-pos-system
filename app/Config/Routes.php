@@ -17,3 +17,8 @@ $routes->get('/users/new', 'Users::new');
 $routes->post('/users/create', 'Users::create');
 $routes->get('/users/edit/(:num)', 'Users::edit/$1');
 $routes->post('/users/update/(:num)', 'Users::update/$1');
+
+$routes->get('/login', 'Auth::login');
+$routes->post('/login', 'Auth::attemptLogin');
+
+$routes->get('/logout', 'Auth::logout');
