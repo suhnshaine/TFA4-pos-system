@@ -24,7 +24,8 @@ class Users extends BaseController
     {
         $rules = [
             'username'  => 'required|is_unique[users.username]',
-            'full_name' => 'required'
+            'full_name' => 'required',
+            'password'  => 'required|min_length[6]'
         ];
 
         if (! $this->validate($rules)) {
@@ -38,6 +39,10 @@ class Users extends BaseController
         $userModel->save([
             'username' => $this->request->getPost('username'),
             'full_name' => $this->request->getPost('full_name'),
+            'password' => password_hash(
+                $this->request->getPost('password'),
+                PASSWORD_DEFAULT
+            ),
             'created_at' => date('Y-m-d H:i:s')
         ]);
 
@@ -87,11 +92,22 @@ class Users extends BaseController
                 ->save(ROOTPATH . 'public/uploads/thumbs/' . $avatarName);
         }
 
-        $userModel->update($id, [
+        $data = [
             'username' => $this->request->getPost('username'),
             'full_name' => $this->request->getPost('full_name'),
             'avatar' => $avatarName
-        ]);
+        ];
+
+        $password = $this->request->getPost('password');
+
+        if (!empty($password)) {
+            $data['password'] = password_hash(
+                $password,
+                PASSWORD_DEFAULT
+            );
+        }
+
+        $userModel->update($id, $data);
 
         return redirect()->to('/users');
     }

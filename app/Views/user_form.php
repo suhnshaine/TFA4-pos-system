@@ -13,9 +13,9 @@
         <h1>POS System</h1>
 
         <nav>
-            <a href="/">Home</a> 
-            <a href="/about">About</a> 
-            <a href="/customers">Customers</a> 
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/customers">Customers</a>
             <a href="/users">Users</a>
             <?php if (session()->get('logged_in')): ?>
                 <a href="<?= site_url('logout') ?>" class="btn btn-edit">
@@ -48,6 +48,18 @@
                     type="text"
                     name="full_name"
                     value="<?= $user['full_name'] ?? '' ?>">
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <?= isset($user)
+                        ? 'New Password (leave blank to keep current password)'
+                        : 'Password' ?>
+                </label>
+
+                <input
+                    type="password"
+                    name="password">
             </div>
 
             <div class="form-group">
